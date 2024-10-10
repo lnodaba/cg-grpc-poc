@@ -1,0 +1,3 @@
+obj\Debug\net8.0\protos/Acronyms.cs \
+obj\Debug\net8.0\protos/AcronymsGrpc.cs: C:/Users/Olah-Ilkei Kund/.nuget/packages/grpc.tools/2.66.0/build/native/include/google/protobuf/timestamp.proto\
+ protos/acronyms.proto

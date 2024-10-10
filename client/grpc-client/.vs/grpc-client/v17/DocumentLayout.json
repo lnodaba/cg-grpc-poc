@@ -1,0 +1,375 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C077186F-DE44-4ED4-9A90-D8E8F338082A}|TrainingGrpcClient.Tests\\TrainingGrpcClient.Tests.csproj|d:\\nextria\\projects\\grpc\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\traininggrpcclient.tests\\acronymservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C077186F-DE44-4ED4-9A90-D8E8F338082A}|TrainingGrpcClient.Tests\\TrainingGrpcClient.Tests.csproj|solutionrelative:traininggrpcclient.tests\\acronymservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C077186F-DE44-4ED4-9A90-D8E8F338082A}|TrainingGrpcClient.Tests\\TrainingGrpcClient.Tests.csproj|d:\\nextria\\projects\\grpc\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\traininggrpcclient.tests\\trainsetcontentservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C077186F-DE44-4ED4-9A90-D8E8F338082A}|TrainingGrpcClient.Tests\\TrainingGrpcClient.Tests.csproj|solutionrelative:traininggrpcclient.tests\\trainsetcontentservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C077186F-DE44-4ED4-9A90-D8E8F338082A}|TrainingGrpcClient.Tests\\TrainingGrpcClient.Tests.csproj|d:\\nextria\\projects\\grpc\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\traininggrpcclient.tests\\acronymtrainservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C077186F-DE44-4ED4-9A90-D8E8F338082A}|TrainingGrpcClient.Tests\\TrainingGrpcClient.Tests.csproj|solutionrelative:traininggrpcclient.tests\\acronymtrainservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45EC8209-1BBA-47CB-BC9A-4D86B3157B9C}|TrainingGrpcClient\\TrainingGrpcClient.csproj|d:\\nextria\\projects\\grpc\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\traininggrpcclient\\acronymserviceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45EC8209-1BBA-47CB-BC9A-4D86B3157B9C}|TrainingGrpcClient\\TrainingGrpcClient.csproj|solutionrelative:traininggrpcclient\\acronymserviceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C077186F-DE44-4ED4-9A90-D8E8F338082A}|TrainingGrpcClient.Tests\\TrainingGrpcClient.Tests.csproj|d:\\nextria\\projects\\grpc\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\traininggrpcclient.tests\\trainsetservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C077186F-DE44-4ED4-9A90-D8E8F338082A}|TrainingGrpcClient.Tests\\TrainingGrpcClient.Tests.csproj|solutionrelative:traininggrpcclient.tests\\trainsetservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C077186F-DE44-4ED4-9A90-D8E8F338082A}|TrainingGrpcClient.Tests\\TrainingGrpcClient.Tests.csproj|d:\\nextria\\projects\\grpc\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\traininggrpcclient.tests\\traininggrpcclient.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{C077186F-DE44-4ED4-9A90-D8E8F338082A}|TrainingGrpcClient.Tests\\TrainingGrpcClient.Tests.csproj|solutionrelative:traininggrpcclient.tests\\traininggrpcclient.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F811AE7-5C63-4D23-B905-13567DFE487C}|grpc-client\\grpc-client.csproj|d:\\nextria\\projects\\grpc\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\grpc-client\\services\\acronymserviceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F811AE7-5C63-4D23-B905-13567DFE487C}|grpc-client\\grpc-client.csproj|solutionrelative:grpc-client\\services\\acronymserviceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45EC8209-1BBA-47CB-BC9A-4D86B3157B9C}|TrainingGrpcClient\\TrainingGrpcClient.csproj|d:\\nextria\\projects\\grpc\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\traininggrpcclient\\trainsetserviceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45EC8209-1BBA-47CB-BC9A-4D86B3157B9C}|TrainingGrpcClient\\TrainingGrpcClient.csproj|solutionrelative:traininggrpcclient\\trainsetserviceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45EC8209-1BBA-47CB-BC9A-4D86B3157B9C}|TrainingGrpcClient\\TrainingGrpcClient.csproj|d:\\nextria\\projects\\grpc\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\traininggrpcclient\\trainsetcontentserviceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45EC8209-1BBA-47CB-BC9A-4D86B3157B9C}|TrainingGrpcClient\\TrainingGrpcClient.csproj|solutionrelative:traininggrpcclient\\trainsetcontentserviceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45EC8209-1BBA-47CB-BC9A-4D86B3157B9C}|TrainingGrpcClient\\TrainingGrpcClient.csproj|d:\\nextria\\projects\\grpc\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\traininggrpcclient\\acronymtraindataserviceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45EC8209-1BBA-47CB-BC9A-4D86B3157B9C}|TrainingGrpcClient\\TrainingGrpcClient.csproj|solutionrelative:traininggrpcclient\\acronymtraindataserviceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45EC8209-1BBA-47CB-BC9A-4D86B3157B9C}|TrainingGrpcClient\\TrainingGrpcClient.csproj|d:\\nextria\\projects\\grpc\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\traininggrpcclient\\protos\\acronyms.proto||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{45EC8209-1BBA-47CB-BC9A-4D86B3157B9C}|TrainingGrpcClient\\TrainingGrpcClient.csproj|solutionrelative:traininggrpcclient\\protos\\acronyms.proto||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F811AE7-5C63-4D23-B905-13567DFE487C}|grpc-client\\grpc-client.csproj|d:\\nextria\\projects\\grpc\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\grpc-client\\protos\\acronyms.proto||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{5F811AE7-5C63-4D23-B905-13567DFE487C}|grpc-client\\grpc-client.csproj|solutionrelative:grpc-client\\protos\\acronyms.proto||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45EC8209-1BBA-47CB-BC9A-4D86B3157B9C}|TrainingGrpcClient\\TrainingGrpcClient.csproj|d:\\nextria\\projects\\grpc\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\traininggrpcclient\\traininggrpcclient.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{45EC8209-1BBA-47CB-BC9A-4D86B3157B9C}|TrainingGrpcClient\\TrainingGrpcClient.csproj|solutionrelative:traininggrpcclient\\traininggrpcclient.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F811AE7-5C63-4D23-B905-13567DFE487C}|grpc-client\\grpc-client.csproj|d:\\nextria\\projects\\grpc\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\grpc-client\\tests\\acronymtrainservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F811AE7-5C63-4D23-B905-13567DFE487C}|grpc-client\\grpc-client.csproj|solutionrelative:grpc-client\\tests\\acronymtrainservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F811AE7-5C63-4D23-B905-13567DFE487C}|grpc-client\\grpc-client.csproj|d:\\nextria\\projects\\grpc\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\grpc-client\\tests\\acronymservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F811AE7-5C63-4D23-B905-13567DFE487C}|grpc-client\\grpc-client.csproj|solutionrelative:grpc-client\\tests\\acronymservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F811AE7-5C63-4D23-B905-13567DFE487C}|grpc-client\\grpc-client.csproj|d:\\nextria\\projects\\grpc\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\grpc-client\\tests\\trainsetservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F811AE7-5C63-4D23-B905-13567DFE487C}|grpc-client\\grpc-client.csproj|solutionrelative:grpc-client\\tests\\trainsetservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F811AE7-5C63-4D23-B905-13567DFE487C}|grpc-client\\grpc-client.csproj|d:\\nextria\\projects\\grpc\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\grpc-client\\tests\\trainsetcontentservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F811AE7-5C63-4D23-B905-13567DFE487C}|grpc-client\\grpc-client.csproj|solutionrelative:grpc-client\\tests\\trainsetcontentservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F811AE7-5C63-4D23-B905-13567DFE487C}|grpc-client\\grpc-client.csproj|d:\\nextria\\projects\\grpc\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\grpc-client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F811AE7-5C63-4D23-B905-13567DFE487C}|grpc-client\\grpc-client.csproj|solutionrelative:grpc-client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F811AE7-5C63-4D23-B905-13567DFE487C}|grpc-client\\grpc-client.csproj|d:\\nextria\\projects\\grpc\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\grpc-client\\grpc-client.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{5F811AE7-5C63-4D23-B905-13567DFE487C}|grpc-client\\grpc-client.csproj|solutionrelative:grpc-client\\grpc-client.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F811AE7-5C63-4D23-B905-13567DFE487C}|grpc-client\\grpc-client.csproj|d:\\nextria\\projects\\grpc\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\grpc-client\\services\\trainsetserviceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F811AE7-5C63-4D23-B905-13567DFE487C}|grpc-client\\grpc-client.csproj|solutionrelative:grpc-client\\services\\trainsetserviceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F811AE7-5C63-4D23-B905-13567DFE487C}|grpc-client\\grpc-client.csproj|d:\\nextria\\projects\\grpc\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\grpc-client\\services\\trainsetcontentserviceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F811AE7-5C63-4D23-B905-13567DFE487C}|grpc-client\\grpc-client.csproj|solutionrelative:grpc-client\\services\\trainsetcontentserviceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F811AE7-5C63-4D23-B905-13567DFE487C}|grpc-client\\grpc-client.csproj|d:\\nextria\\projects\\grpc\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\grpc-client\\services\\acronymtraindataserviceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F811AE7-5C63-4D23-B905-13567DFE487C}|grpc-client\\grpc-client.csproj|solutionrelative:grpc-client\\services\\acronymtraindataserviceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 336,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AcronymServiceTest.cs",
+              "DocumentMoniker": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\TrainingGrpcClient.Tests\\AcronymServiceTest.cs",
+              "RelativeDocumentMoniker": "TrainingGrpcClient.Tests\\AcronymServiceTest.cs",
+              "ToolTip": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\TrainingGrpcClient.Tests\\AcronymServiceTest.cs",
+              "RelativeToolTip": "TrainingGrpcClient.Tests\\AcronymServiceTest.cs",
+              "ViewState": "AQIAAB4AAAAAAAAAAAApwC8AAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T14:21:03.799Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AcronymTrainServiceTest.cs",
+              "DocumentMoniker": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\TrainingGrpcClient.Tests\\AcronymTrainServiceTest.cs",
+              "RelativeDocumentMoniker": "TrainingGrpcClient.Tests\\AcronymTrainServiceTest.cs",
+              "ToolTip": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\TrainingGrpcClient.Tests\\AcronymTrainServiceTest.cs",
+              "RelativeToolTip": "TrainingGrpcClient.Tests\\AcronymTrainServiceTest.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAhwDQAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T14:21:25.423Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TrainsetContentServiceTest.cs",
+              "DocumentMoniker": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\TrainingGrpcClient.Tests\\TrainsetContentServiceTest.cs",
+              "RelativeDocumentMoniker": "TrainingGrpcClient.Tests\\TrainsetContentServiceTest.cs",
+              "ToolTip": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\TrainingGrpcClient.Tests\\TrainsetContentServiceTest.cs",
+              "RelativeToolTip": "TrainingGrpcClient.Tests\\TrainsetContentServiceTest.cs",
+              "ViewState": "AQIAAF4AAAAAAAAAAIAwwGwAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T14:21:28.942Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AcronymServiceService.cs",
+              "DocumentMoniker": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\grpc-client\\services\\AcronymServiceService.cs",
+              "RelativeDocumentMoniker": "grpc-client\\services\\AcronymServiceService.cs",
+              "ToolTip": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\grpc-client\\services\\AcronymServiceService.cs",
+              "RelativeToolTip": "grpc-client\\services\\AcronymServiceService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T12:49:04.41Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AcronymServiceService.cs",
+              "DocumentMoniker": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\TrainingGrpcClient\\AcronymServiceService.cs",
+              "RelativeDocumentMoniker": "TrainingGrpcClient\\AcronymServiceService.cs",
+              "ToolTip": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\TrainingGrpcClient\\AcronymServiceService.cs",
+              "RelativeToolTip": "TrainingGrpcClient\\AcronymServiceService.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAgwBMAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T14:05:06.28Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TrainingGrpcClient.Tests.csproj",
+              "DocumentMoniker": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\TrainingGrpcClient.Tests\\TrainingGrpcClient.Tests.csproj",
+              "RelativeDocumentMoniker": "TrainingGrpcClient.Tests\\TrainingGrpcClient.Tests.csproj",
+              "ToolTip": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\TrainingGrpcClient.Tests\\TrainingGrpcClient.Tests.csproj",
+              "RelativeToolTip": "TrainingGrpcClient.Tests\\TrainingGrpcClient.Tests.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAABFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-09-25T06:15:48.848Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TrainsetServiceTest.cs",
+              "DocumentMoniker": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\TrainingGrpcClient.Tests\\TrainsetServiceTest.cs",
+              "RelativeDocumentMoniker": "TrainingGrpcClient.Tests\\TrainsetServiceTest.cs",
+              "ToolTip": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\TrainingGrpcClient.Tests\\TrainsetServiceTest.cs",
+              "RelativeToolTip": "TrainingGrpcClient.Tests\\TrainsetServiceTest.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAiwHsAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T14:21:54.59Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TrainsetServiceService.cs",
+              "DocumentMoniker": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\TrainingGrpcClient\\TrainsetServiceService.cs",
+              "RelativeDocumentMoniker": "TrainingGrpcClient\\TrainsetServiceService.cs",
+              "ToolTip": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\TrainingGrpcClient\\TrainsetServiceService.cs",
+              "RelativeToolTip": "TrainingGrpcClient\\TrainsetServiceService.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAgwCEAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T14:05:10.195Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "TrainsetContentServiceService.cs",
+              "DocumentMoniker": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\TrainingGrpcClient\\TrainsetContentServiceService.cs",
+              "RelativeDocumentMoniker": "TrainingGrpcClient\\TrainsetContentServiceService.cs",
+              "ToolTip": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\TrainingGrpcClient\\TrainsetContentServiceService.cs",
+              "RelativeToolTip": "TrainingGrpcClient\\TrainsetContentServiceService.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAQwCIAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T14:02:42.403Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AcronymTrainDataServiceService.cs",
+              "DocumentMoniker": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\TrainingGrpcClient\\AcronymTrainDataServiceService.cs",
+              "RelativeDocumentMoniker": "TrainingGrpcClient\\AcronymTrainDataServiceService.cs",
+              "ToolTip": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\TrainingGrpcClient\\AcronymTrainDataServiceService.cs",
+              "RelativeToolTip": "TrainingGrpcClient\\AcronymTrainDataServiceService.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAgwBcAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T14:05:07.952Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "acronyms.proto",
+              "DocumentMoniker": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\TrainingGrpcClient\\protos\\acronyms.proto",
+              "RelativeDocumentMoniker": "TrainingGrpcClient\\protos\\acronyms.proto",
+              "ToolTip": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\TrainingGrpcClient\\protos\\acronyms.proto",
+              "RelativeToolTip": "TrainingGrpcClient\\protos\\acronyms.proto",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003853|",
+              "WhenOpened": "2024-09-24T14:15:44.16Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "acronyms.proto",
+              "DocumentMoniker": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\grpc-client\\protos\\acronyms.proto",
+              "RelativeDocumentMoniker": "grpc-client\\protos\\acronyms.proto",
+              "ToolTip": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\grpc-client\\protos\\acronyms.proto",
+              "RelativeToolTip": "grpc-client\\protos\\acronyms.proto",
+              "ViewState": "AQIAAD8AAAAAAAAAAAAmwGUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003853|",
+              "WhenOpened": "2024-09-24T12:12:22.92Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "TrainingGrpcClient.csproj",
+              "DocumentMoniker": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\TrainingGrpcClient\\TrainingGrpcClient.csproj",
+              "RelativeDocumentMoniker": "TrainingGrpcClient\\TrainingGrpcClient.csproj",
+              "ToolTip": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\TrainingGrpcClient\\TrainingGrpcClient.csproj",
+              "RelativeToolTip": "TrainingGrpcClient\\TrainingGrpcClient.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-09-24T14:04:07.108Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "AcronymTrainServiceTest.cs",
+              "DocumentMoniker": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\grpc-client\\tests\\AcronymTrainServiceTest.cs",
+              "RelativeDocumentMoniker": "grpc-client\\tests\\AcronymTrainServiceTest.cs",
+              "ToolTip": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\grpc-client\\tests\\AcronymTrainServiceTest.cs",
+              "RelativeToolTip": "grpc-client\\tests\\AcronymTrainServiceTest.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAYAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T12:05:55.501Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AcronymServiceTest.cs",
+              "DocumentMoniker": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\grpc-client\\tests\\AcronymServiceTest.cs",
+              "RelativeDocumentMoniker": "grpc-client\\tests\\AcronymServiceTest.cs",
+              "ToolTip": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\grpc-client\\tests\\AcronymServiceTest.cs",
+              "RelativeToolTip": "grpc-client\\tests\\AcronymServiceTest.cs",
+              "ViewState": "AQIAACcAAAAAAAAAAAAgwC8AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T12:24:44.853Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "TrainsetContentServiceTest.cs",
+              "DocumentMoniker": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\grpc-client\\tests\\TrainsetContentServiceTest.cs",
+              "RelativeDocumentMoniker": "grpc-client\\tests\\TrainsetContentServiceTest.cs",
+              "ToolTip": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\grpc-client\\tests\\TrainsetContentServiceTest.cs",
+              "RelativeToolTip": "grpc-client\\tests\\TrainsetContentServiceTest.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAYwCIAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T12:40:38.26Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\grpc-client\\Program.cs",
+              "RelativeDocumentMoniker": "grpc-client\\Program.cs",
+              "ToolTip": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\grpc-client\\Program.cs",
+              "RelativeToolTip": "grpc-client\\Program.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAAB0AAADCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T13:18:32.404Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "TrainsetServiceTest.cs",
+              "DocumentMoniker": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\grpc-client\\tests\\TrainsetServiceTest.cs",
+              "RelativeDocumentMoniker": "grpc-client\\tests\\TrainsetServiceTest.cs",
+              "ToolTip": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\grpc-client\\tests\\TrainsetServiceTest.cs",
+              "RelativeToolTip": "grpc-client\\tests\\TrainsetServiceTest.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAYwCIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T12:45:01.616Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "grpc-client.csproj",
+              "DocumentMoniker": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\grpc-client\\grpc-client.csproj",
+              "RelativeDocumentMoniker": "grpc-client\\grpc-client.csproj",
+              "ToolTip": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\grpc-client\\grpc-client.csproj",
+              "RelativeToolTip": "grpc-client\\grpc-client.csproj",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABYAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-09-24T14:04:10.613Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "AcronymTrainDataServiceService.cs",
+              "DocumentMoniker": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\grpc-client\\services\\AcronymTrainDataServiceService.cs",
+              "RelativeDocumentMoniker": "grpc-client\\services\\AcronymTrainDataServiceService.cs",
+              "ToolTip": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\grpc-client\\services\\AcronymTrainDataServiceService.cs",
+              "RelativeToolTip": "grpc-client\\services\\AcronymTrainDataServiceService.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAQwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T12:49:03.822Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "TrainsetContentServiceService.cs",
+              "DocumentMoniker": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\grpc-client\\services\\TrainsetContentServiceService.cs",
+              "RelativeDocumentMoniker": "grpc-client\\services\\TrainsetContentServiceService.cs",
+              "ToolTip": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\grpc-client\\services\\TrainsetContentServiceService.cs",
+              "RelativeToolTip": "grpc-client\\services\\TrainsetContentServiceService.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAkwCMAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T12:48:16.836Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "TrainsetServiceService.cs",
+              "DocumentMoniker": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\grpc-client\\services\\TrainsetServiceService.cs",
+              "RelativeDocumentMoniker": "grpc-client\\services\\TrainsetServiceService.cs",
+              "ToolTip": "D:\\Nextria\\projects\\gRPC\\cg-grpc-poc-old-db\\cg-grpc-poc\\client\\grpc-client\\grpc-client\\services\\TrainsetServiceService.cs",
+              "RelativeToolTip": "grpc-client\\services\\TrainsetServiceService.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAQwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T12:49:02.255Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

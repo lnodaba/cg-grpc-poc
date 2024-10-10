@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+
+  server:
+    build: ./server
+    container_name: server
+    ports:
+      - "50051:50051"
+    depends_on:
+      - oracle-db
+    networks:
+      - my-network
+
+  oracle-db:
+    image: container-registry.oracle.com/database/free:23.4.0.0
+    container_name: oracle-db
+    ports:
+      - "1521:1521"
+    environment:
+      - ORACLE_USERID=oracle
+      - ORACLE_PASSWORD=oracle
+      - ORACLE_ALLOW_REMOTE=true
+      - ORACLE_ENABLE_XDB=true
+      - ORACLE_CHARACTERSET=AL32UTF8
+      - ORACLE_PDB=FREEPDB1
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge

@@ -1,0 +1,102 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcAcronymsClient";
+package acronyms;
+
+import "google/protobuf/timestamp.proto";
+
+message IdRequest {
+  int32 id = 1;
+}
+
+service AcronymService {
+  rpc create(Acronym) returns (Acronym) {}
+  rpc get_all(Empty) returns (AcronymList) {}
+  rpc update(Acronym) returns (Acronym) {}
+  rpc delete(Acronym) returns (Empty) {}
+  rpc get_by_id(IdRequest) returns (Acronym) {}
+}
+
+service AcronymTrainDataService {
+  rpc create(AcronymTrainData) returns (AcronymTrainData) {}
+  rpc get_all(Empty) returns (AcronymTrainDataList) {}
+  rpc update(AcronymTrainData) returns (AcronymTrainData) {}
+  rpc delete(AcronymTrainData) returns (Empty) {}
+  rpc get_by_id(IdRequest) returns (AcronymTrainData) {}
+}
+
+service TrainsetService {
+  rpc create(Trainset) returns (Trainset) {}
+  rpc get_all(Empty) returns (TrainsetList) {}
+  rpc update(Trainset) returns (Trainset) {}
+  rpc delete(Trainset) returns (Empty) {}
+  rpc get_by_id(IdRequest) returns (Trainset) {}
+}
+
+service TrainsetContentService {
+  rpc create(TrainsetContent) returns (TrainsetContent) {}
+  rpc get_all(Empty) returns (TrainsetContentList) {}
+  rpc update(TrainsetContent) returns (TrainsetContent) {}
+  rpc delete(TrainsetContent) returns (Empty) {}
+  rpc get_by_id(IdRequest) returns (TrainsetContent) {}
+}
+
+
+message Empty {}
+
+message Acronym {
+  int32 id = 1;
+  string acronym_en = 2;
+  string acronym_fr = 3;
+  string text_en = 4;
+  string text_fr = 5;
+  google.protobuf.Timestamp create_dt = 6;
+  google.protobuf.Timestamp update_dt = 7;
+}
+
+
+message AcronymTrainData {
+    int32 id = 1;
+    int32 acronym_id = 2;
+    string provided_by = 3;
+    int32 generated_bytrainset_id = 4;
+    string text_en = 5;
+    string text_fr = 6;
+    string reason = 7;
+    google.protobuf.Timestamp create_dt = 8;
+}
+
+message TrainsetContent {
+    int32 id = 1;
+    int32 trainset_id = 2;
+    int32 acronym_id = 3;
+    int32 traindata_id = 4;
+    string role = 5;
+}
+
+message Trainset {
+    int32 id = 1;
+    string last_run = 2;
+    int32 base_model_inst_id = 3;
+    int32 new_model_inst_id = 4;
+    string description = 5;
+    google.protobuf.Timestamp create_dt = 6;
+}
+
+
+message AcronymList {
+  repeated Acronym list = 1;
+}
+
+message AcronymTrainDataList {
+  repeated AcronymTrainData list = 1;
+}
+
+message TrainsetContentList {
+  repeated TrainsetContent list = 1;
+}
+
+message TrainsetList {
+  repeated Trainset list = 1;
+}
+

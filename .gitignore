@@ -1,0 +1,4 @@
+*.dll
+*.cache
+__pycache__
+/client/grpc-client/.vs/
