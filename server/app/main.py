@@ -1,35 +1,22 @@
 import asyncio
 from concurrent import futures
 import grpc
-from tortoise import Tortoise
-
+from config import NUM_WORKERS
+from sql_alchemy.connection import close_pool, init_db
 from services.proto import acronyms_pb2_grpc
-from config import DATABASE_CONFIG
-
-from structlog import get_logger
-
 from services.trainset_service import TrainsetService
 from services.acronyms_service import AcronymService
 from services.acronyms_traindata_service import AcronymTrainDataService
 from services.trainset_contetns_service import TrainsetContentService
-import logging
-logger = get_logger()
-logging.basicConfig(level=logging.DEBUG)
+from cutom_logger import logger
 
 
 async def main():
     try:
-
-        await Tortoise.init(config=DATABASE_CONFIG)
-        logger.info("Tortoise ORM initialized")
-
-        logger.info("Database connection established")
-
-        # await Tortoise.generate_schemas(safe=True)
-
-        logger.info("Database and schemas generated")
-# futures.ThreadPoolExecutor(max_workers=1)
-        server = grpc.aio.server()
+        await init_db()
+        server = grpc.aio.server(
+            futures.ThreadPoolExecutor(max_workers=NUM_WORKERS)
+        )
         acronyms_pb2_grpc.add_AcronymTrainDataServiceServicer_to_server(
             AcronymTrainDataService(), server
         )
@@ -53,11 +40,8 @@ async def main():
         logger.info("Server terminated")
     except Exception as e:
         logger.error(f"Error: {e}")
-        # traceback.print_exc()
         logger.error("Server stopped")
     finally:
-        # Close all database connections
-        await Tortoise.close_connections()
         logger.info("Database connections closed")
         logger.info("Server stopped")
 

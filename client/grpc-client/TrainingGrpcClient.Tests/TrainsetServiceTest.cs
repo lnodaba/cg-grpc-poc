@@ -23,6 +23,7 @@ public class TrainsetServiceTest
 
     public Trainset GetUpdateDto(Trainset dto)
     {
+        dto.Description = "updated escription";
         return dto;
     }
 
@@ -30,21 +31,28 @@ public class TrainsetServiceTest
     [Fact]
     public async Task Create()
     {
+
         // Arrange
-        var acronym = new Trainset
-        {
-            Description= "start descripton"
-        };
+        var createDto = GetCreateDto();
+        var tasks = new List<Task<Trainset>>();
 
         // Act
-        var created = await _service.Create(acronym);
+        for (int i = 0; i < 10; i++)
+        {
+            tasks.Add(_service.Create(createDto));
+        }
+
+        var results = await Task.WhenAll(tasks);
 
         // Assert
-        Assert.NotNull(created);
-        Assert.NotNull(created.CreateDt);
-        Assert.NotNull(created.Id);
+        foreach (var result in results)
+        {
+            Assert.NotNull(result);
+            Assert.NotNull(result.CreateDt);
+            Assert.NotNull(result.Id);
+            Assert.Equal(createDto.Description, result.Description);
 
-        Assert.Equal(acronym.Description, created.Description);
+        }
 
     }
 
@@ -88,18 +96,26 @@ public class TrainsetServiceTest
     public async Task Update()
     {
         // Arrange
+        Trainset dto = null;
         var result = await _service.GetAll();
         if (result.List.Count < 1)
         {
-            await Create();
+            var createDto = GetCreateDto();
+            dto = await _service.Create(createDto);
         }
-        var last = result.List[result.List.Count - 1];
+        else
+        {
+            dto = result.List[result.List.Count - 1];
+        }
+
+        var updateDto = GetUpdateDto(dto);
 
         // Act
-        var updated = await _service.Update(last);
+        var updated = await _service.Update(updateDto);
 
         // Assert
-        
+        Assert.Equal(updateDto.Id, updated.Id);
+        Assert.Equal(updateDto.Description, updated.Description);
 
     }
 

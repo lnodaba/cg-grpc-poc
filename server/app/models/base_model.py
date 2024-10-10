@@ -1,20 +1,19 @@
-from tortoise import fields
-
-import uuid
-from tortoise.models import Model
+from sqlalchemy import Column, Identity, Integer
+from sqlalchemy.ext.declarative import declarative_base
 
 
-class BaseModel(Model):
+Base = declarative_base()
 
-    class Meta:
-        abstract = True
 
-    id = fields.IntField(pk=True, generated=True, autoincrement=True)
-    
+class BaseModel(Base):
+    __abstract__ = True
+
+    id = Column(Integer, Identity(start=1), primary_key=True, name="ID")
+
+    def to_dict(self):
+        return {
+            "id": self.id
+        }
+
     def __str__(self):
-        return str(self.__dict__)
-
-    def store(self):
-        self.refresh_from_db()
-        self.save()
-        return self
+        return f"BaseModel({self.to_dict()})"

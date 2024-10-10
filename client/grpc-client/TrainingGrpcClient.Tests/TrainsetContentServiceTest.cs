@@ -30,15 +30,25 @@ public class TrainsetContentServiceTest
     public async Task Create()
     {
         // Arrange
-        var dto = GetCreateDto();
+        var createDto = GetCreateDto();
+        var tasks = new List<Task<TrainsetContent>>();
 
         // Act
-        var created = await _service.Create(dto);
+        for (int i = 0; i < 10; i++)
+        {
+            tasks.Add(_service.Create(createDto));
+        }
+
+        var results = await Task.WhenAll(tasks);
 
         // Assert
-        Assert.NotNull(created);
-        Assert.NotNull(created.Id);
-        Assert.Equal("user", created.Role);
+        foreach (var result in results)
+        {
+            Assert.NotNull(result);
+            Assert.NotNull(result.Id);
+            Assert.Equal("user", result.Role);
+        }
+
     }
 
     [Fact]
@@ -97,6 +107,7 @@ public class TrainsetContentServiceTest
 
 
         // Assert
+        Assert.Equal(dto.Id, updateDto.Id);
         Assert.Equal(dto.TraindataId, updateDto.TraindataId);
 
     }

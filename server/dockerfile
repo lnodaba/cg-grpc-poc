@@ -4,55 +4,6 @@ FROM python:3.10
 # Set the working directory inside the container
 WORKDIR /code
 
-# Install required packages including unixODBC and Oracle Instant Client dependencies
-RUN apt-get update && apt-get install -y \
-    unixodbc \
-    unixodbc-dev \
-    wget \
-    libaio1 \
-    unzip \
-    && apt-get clean
-
-# Switch to /opt/oracle for Oracle Instant Client installation
-WORKDIR /opt/oracle
-# 23.5
-
-# Copy the manually downloaded Oracle Instant Client files to the Docker image
-COPY instantclient-basiclite-linuxx64.zip /opt/oracle/
-COPY instantclient-odbc-linuxx64.zip /opt/oracle/
-
-
-RUN unzip -o /opt/oracle/instantclient-basiclite-linuxx64.zip -d /opt/oracle/ && \
-    unzip -o /opt/oracle/instantclient-odbc-linuxx64.zip -d /opt/oracle/ && \
-    rm -f /opt/oracle/instantclient-basiclite-linuxx64.zip /opt/oracle/instantclient-odbc-linuxx64.zip && \
-    cd /opt/oracle/instantclient* && rm -f *jdbc* *occi* *mysql* *README *jar uidrvci genezi adrci && \
-    echo "/opt/oracle/instantclient_23_5" > /etc/ld.so.conf.d/oracle-instantclient.conf && ldconfig
-
-# Set the environment variable for Oracle Instant Client
-ENV LD_LIBRARY_PATH=/opt/oracle/instantclient_23_5:$LD_LIBRARY_PATH
-ENV NLS_LANG=.AL32UTF8
-ENV ORACLE_HOME=/opt/oracle/instantclient_23_5
-
-
-# 19.24
-
-# Copy the manually downloaded Oracle Instant Client files to the Docker image
-# COPY instantclient-basiclite-linux.x64-19.24.zip /opt/oracle/
-# COPY instantclient-odbc-linux.x64-19.24.zip /opt/oracle/
-
-# RUN unzip -o /opt/oracle/instantclient-basiclite-linux.x64-19.24.zip -d /opt/oracle/ && \
-#     unzip -o /opt/oracle/instantclient-odbc-linux.x64-19.24.zip -d /opt/oracle/ && \
-#     rm -f /opt/oracle/instantclient-basiclite-linux.x64-19.24.zip /opt/oracle/instantclient-odbc-linux.x64-19.24.zip && \
-#     cd /opt/oracle/instantclient* && rm -f *jdbc* *occi* *mysql* *README *jar uidrvci genezi adrci && \
-#     echo "/opt/oracle/instantclient_19_24" > /etc/ld.so.conf.d/oracle-instantclient.conf && ldconfig
-
-# # Set the environment variable for Oracle Instant Client
-# ENV LD_LIBRARY_PATH=/opt/oracle/instantclient_19_24:$LD_LIBRARY_PATH
-# ENV NLS_LANG=.AL32UTF8
-# ENV ORACLE_HOME=/opt/oracle/instantclient_19_24
-
-WORKDIR /code
-
 # Copy Poetry configuration files
 COPY pyproject.toml poetry.lock ./
 
