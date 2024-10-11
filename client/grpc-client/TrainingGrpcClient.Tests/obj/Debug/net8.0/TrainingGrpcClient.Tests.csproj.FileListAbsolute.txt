@@ -212,3 +212,4 @@ D:\Nextria\projects\gRPC\cg-grpc-poc-old-db\cg-grpc-poc\client\grpc-client\Train
 D:\Nextria\projects\gRPC\cg-grpc-poc-old-db\cg-grpc-poc\client\grpc-client\TrainingGrpcClient.Tests\obj\Debug\net8.0\TrainingGrpcClient.Tests.pdb
 D:\Nextria\projects\gRPC\cg-grpc-poc-old-db\cg-grpc-poc\client\grpc-client\TrainingGrpcClient.Tests\obj\Debug\net8.0\TrainingGrpcClient.Tests.genruntimeconfig.cache
 D:\Nextria\projects\gRPC\cg-grpc-poc-old-db\cg-grpc-poc\client\grpc-client\TrainingGrpcClient.Tests\obj\Debug\net8.0\ref\TrainingGrpcClient.Tests.dll
+D:\Nextria\projects\gRPC\cg-grpc-poc-old-db\cg-grpc-poc\client\grpc-client\TrainingGrpcClient.Tests\obj\Debug\net8.0\TrainingGrpcClient.Tests.sourcelink.json

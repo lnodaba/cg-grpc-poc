@@ -37,14 +37,28 @@ public class AcronymTrainDataServiceTest
     {
         // Arrange
         var createDto = GetCreateDto();
+        var tasks = new List<Task<AcronymTrainData>>();
 
         // Act
-        var created = await _service.Create(createDto);
+        for (int i = 0; i < 10; i++)
+        {
+            tasks.Add(_service.Create(createDto));
+        }
 
-        // Assert
-        Assert.Equal(createDto.TextEn, created.TextEn);
-        Assert.Equal(createDto.TextFr, created.TextFr);
-        Assert.NotNull(created.CreateDt);
+        var results = await Task.WhenAll(tasks);
+        
+        foreach (var result in results)
+        {
+            // Assert
+            Assert.NotNull(result);
+            Assert.NotNull(result.Id);
+            Assert.NotEqual(createDto.Id, result.Id);
+            Assert.NotEqual(0, result.Id);
+            Assert.Equal(createDto.TextEn, result.TextEn);
+            Assert.Equal(createDto.TextFr, result.TextFr);
+            Assert.NotNull(result.CreateDt);
+        }
+
     }
 
     [Fact]
@@ -104,6 +118,7 @@ public class AcronymTrainDataServiceTest
         var updated = await _service.Update(updateDto);
 
         // Assert
+        Assert.Equal(dto.Id, updateDto.Id);
         Assert.Equal(updateDto.TextEn, updated.TextEn);
         Assert.Equal(updateDto.TextFr, updated.TextFr);
         Assert.Equal(updateDto.Reason, updated.Reason);

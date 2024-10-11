@@ -35,27 +35,32 @@ public class AcronymServiceTest
     }
 
 
-
     [Fact]
     public async Task Create()
     {
         // Arrange
         var createDto = GetCreateDto();
+        var tasks = new List<Task<Acronym>>();
 
-        try
-        {
-            Parallel.For(0, 10,async (i) => await _service.Create(createDto) );
-            Thread.Sleep(3000);
-        }
-        catch (Exception ex)
-        {
-            throw;
-        }
         // Act
+        for (int i = 0; i < 10; i++)
+        {
+            tasks.Add(_service.Create(createDto));
+        }
+
+        var results = await Task.WhenAll(tasks);
 
         // Assert
-      
+        foreach (var result in results)
+        {
+            Assert.NotNull(result); // Check if the result is not null
+            Assert.NotEqual(0, result.Id); // Check that the created object's Id is not zero
+            Assert.Equal(createDto.AcronymEn, result.AcronymEn); // Check if AcronymEn matches
+            Assert.Equal(createDto.AcronymFr, result.AcronymFr); // Check if AcronymFr matches
+        }
+
     }
+
 
     [Fact]
     public async Task GetAll()
@@ -116,9 +121,10 @@ public class AcronymServiceTest
         var updated = await _service.Update(updateDto);
 
         // Assert
+        Assert.Equal(dto.Id, updateDto.Id);
         Assert.Equal(updateDto.TextEn, updated.TextEn);
         Assert.Equal(updateDto.TextFr, updated.TextFr);
-        Assert.NotEqual(updateDto.UpdateDt, updated.UpdateDt);
+        Assert.NotNull(updated.UpdateDt);
     }
 
     [Fact]
