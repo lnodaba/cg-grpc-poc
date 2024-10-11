@@ -2,7 +2,7 @@
 
 import grpc
 from sqlalchemy import select
-from cutom_logger import logger
+from custom_logger import logger
 
 from sql_alchemy.connection import get_session
 from services.proto import acronyms_pb2
@@ -18,73 +18,44 @@ class BaseService:
         self.grpc_model_list = GrpcModelList
 
     async def create(self, request, context):
-        logger.info(f"Creating {self.orm_model.__name__}")
-        create_dto = self.grpc_to_orm(request)
-
-        try:
+        async def create_query():
+            create_dto = self.grpc_to_orm(request)
             async with get_session() as session:
                 session.add(create_dto)
                 await session.flush()
                 await session.refresh(create_dto)
                 logger.info(f"Object {create_dto} saved")
                 return self.orm_to_grpc(create_dto)
-        except Exception as e:
-            logger.error(
-                f"Error saving {self.orm_model.__name__} object: {e}"
-            )
-            context.set_code(grpc.StatusCode.INTERNAL)
-            context.set_details(
-                f"Error saving {self.orm_model.__name__} object."
-            )
-            return acronyms_pb2.Empty()
 
-        return self.orm_to_grpc(create_dto)
+        return await self._try_execute(create_query, request, context)
 
     async def get_all(self, request, context):
-        logger.info(f"Getting all {self.orm_model.__name__} objects")
-        statement = select(self.orm_model)
-        try:
+        async def get_all_query():
             async with get_session() as session:
+                statement = select(self.orm_model)
                 result = await session.execute(statement)
                 orm_obj_list = result.scalars().all()
-                dto_list = [self.orm_to_grpc(orm_obj) for orm_obj in orm_obj_list]
+                dto_list = [
+                    self.orm_to_grpc(orm_obj) for orm_obj in orm_obj_list
+                ]
                 return self.grpc_model_list(list=dto_list)
-        except Exception as e:
-            logger.error(f"Error fetching {self.orm_model.__name__} objects: {e}")
-            context.set_code(grpc.StatusCode.INTERNAL)
-            context.set_details("Internal error occurred.")
-            return acronyms_pb2.Empty()
+
+        return await self._try_execute(get_all_query, request, context)
 
     async def get_by_id(self, request, context):
-        logger.info(
-            f"Getting {self.orm_model.__name__} object with ID {request.id}"
-        )
-        statement = select(self.orm_model).filter_by(id=request.id)
-        try:
+        async def get_by_id_query():
+            statement = select(self.orm_model).filter_by(id=request.id)
             async with get_session() as session:
-                result = await session.execute(statement)
-                orm_obj = result.scalars().one()
+                db_result = await session.execute(statement)
+                orm_obj = db_result.scalars().one()
                 return self.orm_to_grpc(orm_obj)
-        except DoesNotExist:
-            context.set_code(grpc.StatusCode.NOT_FOUND)
-            context.set_details(f'Acronym with ID {request.id} not found')
-            return acronyms_pb2.Empty()
-        except Exception as e:
-            logger.error(
-                f"Error fetching {self.orm_model.__name__} object: {e}"
-            )
-            context.set_code(grpc.StatusCode.INTERNAL)
-            context.set_details("Internal error occurred.")
-            return acronyms_pb2.Empty()
+
+        return await self._try_execute(get_by_id_query, request, context)
 
     async def update(self, request, context):
-        logger.info(
-            f"Updating {self.orm_model.__name__} object with ID {request.id}"
-        )
-
-        try:
+        async def update_query():
+            statement = select(self.orm_model).filter_by(id=request.id)
             async with get_session() as session:
-                statement = select(self.orm_model).filter_by(id=request.id)
                 result = await session.execute(statement)
                 orm_obj = result.scalars().one()
 
@@ -96,43 +67,43 @@ class BaseService:
 
                 logger.info(f"Updated object to {orm_obj}")
                 return self.orm_to_grpc(orm_obj)
-        except DoesNotExist:
-            context.set_code(grpc.StatusCode.NOT_FOUND)
-            context.set_details(f'Acronym with ID {request.id} not found')
-            return acronyms_pb2.Empty()
-        except Exception as e:
-            logger.error(
-                f"Error updating {self.orm_model.__name__} object: {e}"
-            )
-            context.set_code(grpc.StatusCode.INTERNAL)
-            context.set_details(f"{e}")
-            return acronyms_pb2.Empty()
+
+        return await self._try_execute(update_query, request, context)
 
     async def delete(self, request, context):
-        try:
+        async def delete_query():
+            statement = select(self.orm_model).filter_by(id=request.id)
             async with get_session() as session:
-                statement = select(self.orm_model).filter_by(id=request.id)
                 result = await session.execute(statement)
                 orm_obj = result.scalars().one()
 
                 await session.delete(orm_obj)
                 await session.flush()
 
-                logger.info(
-                    f"{self.orm_model.__name__} " +
-                    "object with ID {request.id} deleted"
-                )
             return acronyms_pb2.Empty()
+
+        return await self._try_execute(delete_query, request, context)
+
+    async def _try_execute(self, func, request, context):
+        try:
+            opeartion = func.__name__.replace('_query', '').upper()
+            logger.info(
+                f"Executing {opeartion} for {self.orm_model.__name__}"
+            )
+            return await func()
         except DoesNotExist:
             context.set_code(grpc.StatusCode.NOT_FOUND)
-            context.set_details(f'Acronym with ID {request.id} not found')
+            context.set_details(
+                f'{self.orm_model.__name__} with ID {request.id} not found'
+            )
             return acronyms_pb2.Empty()
         except Exception as e:
             logger.error(
-                f"Error deleting {self.orm_model.__name__} object: {e}"
+                "Error occurred while executing "
+                f"{opeartion} for {self.orm_model.__name__}: {e}"
             )
             context.set_code(grpc.StatusCode.INTERNAL)
-            context.set_details("Internal error occurred.")
+            context.set_details(f"Internal server error occurred: {e}")
             return acronyms_pb2.Empty()
 
     def set_dates(self, orm_acr, update=None, create=None):

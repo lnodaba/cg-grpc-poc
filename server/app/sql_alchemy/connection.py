@@ -6,10 +6,10 @@ from sqlalchemy import NullPool
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import sessionmaker
 from models.base_model import Base
-from cutom_logger import logger
+from custom_logger import logger
 
 from config import (
-    HOST, NATIVE_SQL_DEBUG, PORT, DATABASE, USER, PASSWORD, MIN_POOL_SIZE,
+    DATABASE_HOST, NATIVE_SQL_DEBUG, DATABASE_PORT, DATABASE, USER, PASSWORD, MIN_POOL_SIZE,
     MAX_POOL_SIZE,
     POOL_INCREMENT
 )
@@ -17,7 +17,7 @@ from config import (
 
 pool = oracledb.create_pool(
     user=USER, password=PASSWORD,
-    host=HOST, port=PORT, service_name=DATABASE,
+    host=DATABASE_HOST, port=DATABASE_PORT, service_name=DATABASE,
     min=MIN_POOL_SIZE, max=MAX_POOL_SIZE, increment=POOL_INCREMENT
 )
 
@@ -59,4 +59,5 @@ async def get_session() -> AsyncSession:
 
 
 async def close_pool():
-    pass
+    pool.close()
+    logger.info("Database pool closed")

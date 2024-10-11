@@ -1,8 +1,9 @@
 import os
 
-
 HOST = os.getenv('HOST', 'localhost')
-PORT = os.getenv('PORT', 1521)
+PORT = os.getenv('PORT', 50051)
+DATABASE_HOST = os.getenv('DATABASE_HOST', 'localhost')
+DATABASE_PORT = os.getenv('DATABASE_PORT', 1521)
 DATABASE = os.getenv('DATABASE', 'FREEPDB1')
 USER = os.getenv('USER', 'oracle')
 PASSWORD = os.getenv('PASSWORD', 'oracle')
