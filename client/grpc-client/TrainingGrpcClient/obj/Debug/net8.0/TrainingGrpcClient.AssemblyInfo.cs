@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TrainingGrpcClient")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+68865e9992c1a8a2a98d676a15b42fcf4e98fba4")]
 [assembly: System.Reflection.AssemblyProductAttribute("TrainingGrpcClient")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TrainingGrpcClient")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

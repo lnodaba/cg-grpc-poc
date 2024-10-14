@@ -1,4 +1,5 @@
-﻿using Grpc.Net.Client;
+﻿using System;
+using Grpc.Net.Client;
 using GrpcAcronymsClient;
 
 namespace TrainingGrpcClient
@@ -7,9 +8,9 @@ namespace TrainingGrpcClient
     {
         private readonly TrainsetContentService.TrainsetContentServiceClient _client;
 
-        public TrainsetContentServiceService()
+        public TrainsetContentServiceService(String url)
         {
-            var channel = GrpcChannel.ForAddress("http://localhost:50051");
+            var channel = GrpcChannel.ForAddress(url);
             _client = new TrainsetContentService.TrainsetContentServiceClient(channel);
         }
 

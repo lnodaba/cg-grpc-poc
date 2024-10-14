@@ -1,16 +1,18 @@
 ﻿using GrpcAcronymsClient;
 using Grpc.Net.Client;
 using System.Threading.Channels;
+using System.Runtime;
+using Microsoft.Extensions.Options;
+
 
 namespace TrainingGrpcClient
 {
     public class AcronymServiceService
     {
         private readonly AcronymService.AcronymServiceClient _client;
-        //private readonly GrpcChannel channel;
-        public AcronymServiceService()
+        public AcronymServiceService(String url)
         {
-            var channel = GrpcChannel.ForAddress("http://localhost:50051");
+            var channel = GrpcChannel.ForAddress(url);
             _client = new AcronymService.AcronymServiceClient(channel);
         }
 

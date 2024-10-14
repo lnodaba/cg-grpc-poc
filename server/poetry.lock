@@ -1022,7 +1022,6 @@ files = [
 
 [package.dependencies]
 aiosqlite = ">=0.16.0,<0.18.0"
-asyncodbc = {version = ">=0.1.1,<0.2.0", optional = true, markers = "extra == \"asyncodbc\""}
 iso8601 = ">=1.0.2,<2.0.0"
 pydantic = ">=2.0,<2.7.0 || >2.7.0,<3.0"
 pypika-tortoise = ">=0.1.6,<0.2.0"
@@ -1050,4 +1049,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "ffcb03cad45ace3ad94e851c2a38ca2da065297e47059890f611cbed298d4b3a"
+content-hash = "1bbbd6e4002a752fadac009a1874f4cc52318857e2d6e013f3183b9975679b8f"

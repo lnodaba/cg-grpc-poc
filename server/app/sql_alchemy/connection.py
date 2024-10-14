@@ -1,4 +1,5 @@
 
+import asyncio
 from contextlib import asynccontextmanager
 import oracledb
 
@@ -36,13 +37,23 @@ AsyncSessionLocal = sessionmaker(
 
 
 async def init_db():
-    try:
-        async with engine.begin() as conn:
-            await conn.run_sync(Base.metadata.create_all)
-        logger.info("Database tables initialized successfully.")
-    except Exception as e:
-        logger.error(f"Error initializing database: {e}")
-        raise
+
+    tries = 0
+    while True:
+
+        try:
+            async with engine.begin() as conn:
+                await conn.run_sync(Base.metadata.create_all)
+                logger.info("Database tables initialized successfully.")
+                return
+        except Exception as e:
+            logger.error("Could not sync database")
+            logger.info("Retrying in 5 seconds...")
+            if tries == 3:
+                logger.error(f"Error initializing database: {e}")
+                raise
+            tries += 1
+            await asyncio.sleep(5)
 
 
 @asynccontextmanager

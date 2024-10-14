@@ -7,9 +7,9 @@ namespace TrainingGrpcClient
     {
         private readonly AcronymTrainDataService.AcronymTrainDataServiceClient _client;
 
-        public AcronymTrainDataServiceService()
+        public AcronymTrainDataServiceService(String url)
         {
-            var channel = GrpcChannel.ForAddress("http://localhost:50051");
+            var channel = GrpcChannel.ForAddress(url);
             _client = new AcronymTrainDataService.AcronymTrainDataServiceClient(channel);
         }
 

@@ -1,4 +1,5 @@
 ﻿using GrpcAcronymsClient;
+using Microsoft.Extensions.Configuration;
 
 namespace TrainingGrpcClient.Tests;
 
@@ -8,7 +9,15 @@ public class TrainsetContentServiceTest
 
     public TrainsetContentServiceTest()
     {
-        _service = new TrainsetContentServiceService();
+        var builder = new ConfigurationBuilder()
+               .SetBasePath(Directory.GetCurrentDirectory())
+               .AddJsonFile("appsettings.test.json", optional: true, reloadOnChange: true);
+
+        var configuration = builder.Build();
+
+        var grpcUrl = configuration.GetSection("GrpcSettings:ServerUrl").Value;
+
+        _service = new TrainsetContentServiceService(grpcUrl);
     }
     public TrainsetContent GetCreateDto()
     {

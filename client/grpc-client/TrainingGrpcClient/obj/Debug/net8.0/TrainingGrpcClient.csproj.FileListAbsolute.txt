@@ -22,3 +22,4 @@ D:\Nextria\projects\gRPC\cg-grpc-poc-old-db\cg-grpc-poc\client\grpc-client\Train
 D:\Nextria\projects\gRPC\cg-grpc-poc-old-db\cg-grpc-poc\client\grpc-client\TrainingGrpcClient\obj\Debug\net8.0\refint\TrainingGrpcClient.dll
 D:\Nextria\projects\gRPC\cg-grpc-poc-old-db\cg-grpc-poc\client\grpc-client\TrainingGrpcClient\obj\Debug\net8.0\TrainingGrpcClient.pdb
 D:\Nextria\projects\gRPC\cg-grpc-poc-old-db\cg-grpc-poc\client\grpc-client\TrainingGrpcClient\obj\Debug\net8.0\ref\TrainingGrpcClient.dll
+D:\Nextria\projects\gRPC\cg-grpc-poc-old-db\cg-grpc-poc\client\grpc-client\TrainingGrpcClient\obj\Debug\net8.0\TrainingGrpcClient.sourcelink.json

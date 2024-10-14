@@ -213,3 +213,15 @@ D:\Nextria\projects\gRPC\cg-grpc-poc-old-db\cg-grpc-poc\client\grpc-client\Train
 D:\Nextria\projects\gRPC\cg-grpc-poc-old-db\cg-grpc-poc\client\grpc-client\TrainingGrpcClient.Tests\obj\Debug\net8.0\TrainingGrpcClient.Tests.genruntimeconfig.cache
 D:\Nextria\projects\gRPC\cg-grpc-poc-old-db\cg-grpc-poc\client\grpc-client\TrainingGrpcClient.Tests\obj\Debug\net8.0\ref\TrainingGrpcClient.Tests.dll
 D:\Nextria\projects\gRPC\cg-grpc-poc-old-db\cg-grpc-poc\client\grpc-client\TrainingGrpcClient.Tests\obj\Debug\net8.0\TrainingGrpcClient.Tests.sourcelink.json
+D:\Nextria\projects\gRPC\cg-grpc-poc-old-db\cg-grpc-poc\client\grpc-client\TrainingGrpcClient.Tests\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Nextria\projects\gRPC\cg-grpc-poc-old-db\cg-grpc-poc\client\grpc-client\TrainingGrpcClient.Tests\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+D:\Nextria\projects\gRPC\cg-grpc-poc-old-db\cg-grpc-poc\client\grpc-client\TrainingGrpcClient.Tests\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+D:\Nextria\projects\gRPC\cg-grpc-poc-old-db\cg-grpc-poc\client\grpc-client\TrainingGrpcClient.Tests\bin\Debug\net8.0\Microsoft.Extensions.Configuration.dll
+D:\Nextria\projects\gRPC\cg-grpc-poc-old-db\cg-grpc-poc\client\grpc-client\TrainingGrpcClient.Tests\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Nextria\projects\gRPC\cg-grpc-poc-old-db\cg-grpc-poc\client\grpc-client\TrainingGrpcClient.Tests\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Binder.dll
+D:\Nextria\projects\gRPC\cg-grpc-poc-old-db\cg-grpc-poc\client\grpc-client\TrainingGrpcClient.Tests\bin\Debug\net8.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+D:\Nextria\projects\gRPC\cg-grpc-poc-old-db\cg-grpc-poc\client\grpc-client\TrainingGrpcClient.Tests\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Json.dll
+D:\Nextria\projects\gRPC\cg-grpc-poc-old-db\cg-grpc-poc\client\grpc-client\TrainingGrpcClient.Tests\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\Nextria\projects\gRPC\cg-grpc-poc-old-db\cg-grpc-poc\client\grpc-client\TrainingGrpcClient.Tests\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Physical.dll
+D:\Nextria\projects\gRPC\cg-grpc-poc-old-db\cg-grpc-poc\client\grpc-client\TrainingGrpcClient.Tests\bin\Debug\net8.0\Microsoft.Extensions.FileSystemGlobbing.dll
+D:\Nextria\projects\gRPC\cg-grpc-poc-old-db\cg-grpc-poc\client\grpc-client\TrainingGrpcClient.Tests\bin\Debug\net8.0\appsettings.test.json

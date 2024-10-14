@@ -1,4 +1,5 @@
 ﻿using GrpcAcronymsClient;
+using Microsoft.Extensions.Configuration;
 
 namespace TrainingGrpcClient.Tests;
 
@@ -8,7 +9,15 @@ public class TrainsetServiceTest
 
     public TrainsetServiceTest()
     {
-        _service = new TrainsetServiceService();
+        var builder = new ConfigurationBuilder()
+               .SetBasePath(Directory.GetCurrentDirectory())
+               .AddJsonFile("appsettings.test.json", optional: true, reloadOnChange: true);
+
+        var configuration = builder.Build();
+
+        var grpcUrl = configuration.GetSection("GrpcSettings:ServerUrl").Value;
+
+        _service = new TrainsetServiceService(grpcUrl);
     }
 
     public Trainset GetCreateDto()
@@ -51,7 +60,6 @@ public class TrainsetServiceTest
             Assert.NotNull(result.CreateDt);
             Assert.NotNull(result.Id);
             Assert.Equal(createDto.Description, result.Description);
-
         }
 
     }
@@ -128,7 +136,7 @@ public class TrainsetServiceTest
         
         var createDto = GetCreateDto();
         dto = await _service.Create(createDto);
-       
+
         // Act
         await _service.Delete(dto);
 

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using GrpcAcronymsClient;
-
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 
 namespace TrainingGrpcClient.Tests;
 
@@ -11,7 +13,15 @@ public class AcronymServiceTest
 
     public AcronymServiceTest()
     {
-        _service = new AcronymServiceService();
+        var builder = new ConfigurationBuilder()
+               .SetBasePath(Directory.GetCurrentDirectory())
+               .AddJsonFile("appsettings.test.json", optional: true, reloadOnChange: true);
+
+        var configuration = builder.Build();
+
+        var grpcUrl = configuration.GetSection("GrpcSettings:ServerUrl").Value;
+
+        _service = new AcronymServiceService(grpcUrl);
     }
 
     public Acronym GetCreateDto()

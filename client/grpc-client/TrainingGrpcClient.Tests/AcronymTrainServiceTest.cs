@@ -1,4 +1,5 @@
 ﻿using GrpcAcronymsClient;
+using Microsoft.Extensions.Configuration;
 
 
 
@@ -9,7 +10,15 @@ public class AcronymTrainDataServiceTest
 
     public AcronymTrainDataServiceTest()
     {
-        _service = new AcronymTrainDataServiceService();
+        var builder = new ConfigurationBuilder()
+               .SetBasePath(Directory.GetCurrentDirectory())
+               .AddJsonFile("appsettings.test.json", optional: true, reloadOnChange: true);
+
+        var _configuration = builder.Build();
+
+        var grpcUrl = _configuration.GetSection("GrpcSettings:ServerUrl").Value;
+
+        _service = new AcronymTrainDataServiceService(grpcUrl);
     }
 
     public AcronymTrainData GetCreateDto()
