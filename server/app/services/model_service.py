@@ -1,20 +1,20 @@
 from services.base_service import BaseService
-from services.proto import acronyms_pb2, acronyms_pb2_grpc
-from models.trainset_contents import TrainsetContent
+from services.proto import acronyms_pb2
+import services.proto.acronyms_pb2_grpc as acronyms_pb2_grpc
+from models.models import Model
 
 
-class TrainsetContentService(
-    acronyms_pb2_grpc.TrainsetContentService
+class ModelService(
+    acronyms_pb2_grpc.ModelServiceServicer,
 ):
-
     def __init__(self):
         super().__init__()
         self.base_service = BaseService(
-            TrainsetContent,
-            acronyms_pb2.TrainsetContent,
-            acronyms_pb2.TrainsetContentList
+            Model,
+            acronyms_pb2.Model,
+            acronyms_pb2.ModelList
         )
-    
+
     async def create(self, request, context):
         return await self.base_service.create(request, context)
 

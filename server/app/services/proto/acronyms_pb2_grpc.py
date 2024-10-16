@@ -5,7 +5,6 @@ import warnings
 
 # import acronyms_pb2 as acronyms__pb2
 from . import acronyms_pb2 as acronyms__pb2
-
 GRPC_GENERATED_VERSION = '1.66.2'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
@@ -60,6 +59,16 @@ class AcronymServiceStub(object):
                 request_serializer=acronyms__pb2.IdRequest.SerializeToString,
                 response_deserializer=acronyms__pb2.Acronym.FromString,
                 _registered_method=True)
+        self.add_to_trainset = channel.unary_unary(
+                '/acronyms.AcronymService/add_to_trainset',
+                request_serializer=acronyms__pb2.AcronymWithTrainsetId.SerializeToString,
+                response_deserializer=acronyms__pb2.Acronym.FromString,
+                _registered_method=True)
+        self.get_by_trainset_id = channel.unary_unary(
+                '/acronyms.AcronymService/get_by_trainset_id',
+                request_serializer=acronyms__pb2.IdRequest.SerializeToString,
+                response_deserializer=acronyms__pb2.AcronymList.FromString,
+                _registered_method=True)
 
 
 class AcronymServiceServicer(object):
@@ -95,6 +104,18 @@ class AcronymServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def add_to_trainset(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def get_by_trainset_id(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_AcronymServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -122,6 +143,16 @@ def add_AcronymServiceServicer_to_server(servicer, server):
                     servicer.get_by_id,
                     request_deserializer=acronyms__pb2.IdRequest.FromString,
                     response_serializer=acronyms__pb2.Acronym.SerializeToString,
+            ),
+            'add_to_trainset': grpc.unary_unary_rpc_method_handler(
+                    servicer.add_to_trainset,
+                    request_deserializer=acronyms__pb2.AcronymWithTrainsetId.FromString,
+                    response_serializer=acronyms__pb2.Acronym.SerializeToString,
+            ),
+            'get_by_trainset_id': grpc.unary_unary_rpc_method_handler(
+                    servicer.get_by_trainset_id,
+                    request_deserializer=acronyms__pb2.IdRequest.FromString,
+                    response_serializer=acronyms__pb2.AcronymList.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -259,6 +290,60 @@ class AcronymService(object):
             '/acronyms.AcronymService/get_by_id',
             acronyms__pb2.IdRequest.SerializeToString,
             acronyms__pb2.Acronym.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def add_to_trainset(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/acronyms.AcronymService/add_to_trainset',
+            acronyms__pb2.AcronymWithTrainsetId.SerializeToString,
+            acronyms__pb2.Acronym.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def get_by_trainset_id(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/acronyms.AcronymService/get_by_trainset_id',
+            acronyms__pb2.IdRequest.SerializeToString,
+            acronyms__pb2.AcronymList.FromString,
             options,
             channel_credentials,
             insecure,
@@ -991,6 +1076,250 @@ class TrainsetContentService(object):
             '/acronyms.TrainsetContentService/get_by_id',
             acronyms__pb2.IdRequest.SerializeToString,
             acronyms__pb2.TrainsetContent.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+
+class ModelServiceStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.create = channel.unary_unary(
+                '/acronyms.ModelService/create',
+                request_serializer=acronyms__pb2.Model.SerializeToString,
+                response_deserializer=acronyms__pb2.Model.FromString,
+                _registered_method=True)
+        self.get_all = channel.unary_unary(
+                '/acronyms.ModelService/get_all',
+                request_serializer=acronyms__pb2.Empty.SerializeToString,
+                response_deserializer=acronyms__pb2.ModelList.FromString,
+                _registered_method=True)
+        self.update = channel.unary_unary(
+                '/acronyms.ModelService/update',
+                request_serializer=acronyms__pb2.Model.SerializeToString,
+                response_deserializer=acronyms__pb2.Model.FromString,
+                _registered_method=True)
+        self.delete = channel.unary_unary(
+                '/acronyms.ModelService/delete',
+                request_serializer=acronyms__pb2.Model.SerializeToString,
+                response_deserializer=acronyms__pb2.Empty.FromString,
+                _registered_method=True)
+        self.get_by_id = channel.unary_unary(
+                '/acronyms.ModelService/get_by_id',
+                request_serializer=acronyms__pb2.IdRequest.SerializeToString,
+                response_deserializer=acronyms__pb2.Model.FromString,
+                _registered_method=True)
+
+
+class ModelServiceServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def create(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def get_all(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def update(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def delete(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def get_by_id(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_ModelServiceServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'create': grpc.unary_unary_rpc_method_handler(
+                    servicer.create,
+                    request_deserializer=acronyms__pb2.Model.FromString,
+                    response_serializer=acronyms__pb2.Model.SerializeToString,
+            ),
+            'get_all': grpc.unary_unary_rpc_method_handler(
+                    servicer.get_all,
+                    request_deserializer=acronyms__pb2.Empty.FromString,
+                    response_serializer=acronyms__pb2.ModelList.SerializeToString,
+            ),
+            'update': grpc.unary_unary_rpc_method_handler(
+                    servicer.update,
+                    request_deserializer=acronyms__pb2.Model.FromString,
+                    response_serializer=acronyms__pb2.Model.SerializeToString,
+            ),
+            'delete': grpc.unary_unary_rpc_method_handler(
+                    servicer.delete,
+                    request_deserializer=acronyms__pb2.Model.FromString,
+                    response_serializer=acronyms__pb2.Empty.SerializeToString,
+            ),
+            'get_by_id': grpc.unary_unary_rpc_method_handler(
+                    servicer.get_by_id,
+                    request_deserializer=acronyms__pb2.IdRequest.FromString,
+                    response_serializer=acronyms__pb2.Model.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'acronyms.ModelService', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+    server.add_registered_method_handlers('acronyms.ModelService', rpc_method_handlers)
+
+
+ # This class is part of an EXPERIMENTAL API.
+class ModelService(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def create(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/acronyms.ModelService/create',
+            acronyms__pb2.Model.SerializeToString,
+            acronyms__pb2.Model.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def get_all(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/acronyms.ModelService/get_all',
+            acronyms__pb2.Empty.SerializeToString,
+            acronyms__pb2.ModelList.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def update(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/acronyms.ModelService/update',
+            acronyms__pb2.Model.SerializeToString,
+            acronyms__pb2.Model.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def delete(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/acronyms.ModelService/delete',
+            acronyms__pb2.Model.SerializeToString,
+            acronyms__pb2.Empty.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def get_by_id(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/acronyms.ModelService/get_by_id',
+            acronyms__pb2.IdRequest.SerializeToString,
+            acronyms__pb2.Model.FromString,
             options,
             channel_credentials,
             insecure,

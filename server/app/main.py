@@ -8,6 +8,7 @@ from services.trainset_service import TrainsetService
 from services.acronyms_service import AcronymService
 from services.acronyms_traindata_service import AcronymTrainDataService
 from services.trainset_contetns_service import TrainsetContentService
+from services.model_service import ModelService
 from custom_logger import logger
 
 
@@ -31,6 +32,9 @@ async def main():
 
         acronyms_pb2_grpc.add_TrainsetServiceServicer_to_server(
             TrainsetService(), server
+        )
+        acronyms_pb2_grpc.add_ModelServiceServicer_to_server(
+            ModelService(), server
         )
 
         server.add_insecure_port(f"[::]:{PORT}")

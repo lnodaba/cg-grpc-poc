@@ -14,6 +14,8 @@ service AcronymService {
   rpc update(Acronym) returns (Acronym) {}
   rpc delete(Acronym) returns (Empty) {}
   rpc get_by_id(IdRequest) returns (Acronym) {}  // New get_by_id method
+  rpc add_to_trainset(AcronymWithTrainsetId) returns (Acronym) {}
+  rpc get_by_trainset_id(IdRequest) returns (AcronymList) {}
 }
 
 service AcronymTrainDataService {
@@ -40,6 +42,14 @@ service TrainsetContentService {
   rpc get_by_id(IdRequest) returns (TrainsetContent) {}  // New get_by_id method
 }
 
+service ModelService {
+  rpc create(Model) returns (Model) {}
+  rpc get_all(Empty) returns (ModelList) {}
+  rpc update(Model) returns (Model) {}
+  rpc delete(Model) returns (Empty) {}
+  rpc get_by_id(IdRequest) returns (Model) {}  // New get_by_id method
+}
+
 message Empty {}
 
 message Acronym {
@@ -52,6 +62,10 @@ message Acronym {
   google.protobuf.Timestamp update_dt = 7;
 }
 
+message AcronymWithTrainsetId {
+    Acronym acronym = 1;
+    int32 trainset_id = 2;
+}
 
 message AcronymTrainData {
     int32 id = 1;
@@ -79,6 +93,19 @@ message Trainset {
     int32 new_model_inst_id = 4;
     string description = 5;
     google.protobuf.Timestamp create_dt = 6;
+    string version = 7;
+    string created_by = 8;
+}
+
+message Model {
+    int32 id = 1;
+    string name = 2;
+    string version = 3;
+    google.protobuf.Timestamp date = 4;
+    int32 checkpoint = 5;
+    float score = 6;
+    string department = 7;
+    string status = 8;
 }
 
 
@@ -96,5 +123,9 @@ message TrainsetContentList {
 
 message TrainsetList {
   repeated Trainset list = 1;
+}
+
+message ModelList {
+  repeated Model list = 1;
 }
 
