@@ -21,6 +21,7 @@ python-dateutil = "^2.9.0.post0"
 sqlalchemy = {extras = ["asyncio"], version = "^2.0.35"}
 colorama = "^0.4.6"
 oracledb = "^2.4.1"
+rodi = "^2.0.6"
 
 
 

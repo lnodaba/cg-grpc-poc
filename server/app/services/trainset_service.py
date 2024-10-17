@@ -1,32 +1,50 @@
-from services.base_service import BaseService
+from mapper.Mapper import TrainsetMapper
+from repository.repository import TrainsetRepository
+from services.base_service import grpc_exception_handler_decorator
 from services.proto import acronyms_pb2_grpc
-from models.trainset import Trainset
-import services.proto.acronyms_pb2 as acronyms_pb2
 
 
 class TrainsetService(
     acronyms_pb2_grpc.TrainsetServiceServicer,
 ):
 
-    def __init__(self):
+    def __init__(
+        self,
+        repository: TrainsetRepository,
+        mapper: TrainsetMapper
+    ):
         super().__init__()
-        self.base_service = BaseService(
-            Trainset,
-            acronyms_pb2.Trainset,
-            acronyms_pb2.TrainsetList
-        )
+        self.repository = repository
+        self.mapper = mapper
 
-    async def create(self, request, context):
-        return await self.base_service.create(request, context)
+    @grpc_exception_handler_decorator
+    async def create(self, request):
+        model = self.mapper.grpc_to_orm(request)
+        model = await self.repository.create(model)
+        return self.mapper.orm_to_grpc(model)
 
-    async def get_all(self, request, context):
-        return await self.base_service.get_all(request, context)
+    @grpc_exception_handler_decorator
+    async def get_all(self, request):
+        models = await self.repository.get_all()
+        return self.mapper.orm_to_grpc_list(models)
 
-    async def get_by_id(self, request, context):
-        return await self.base_service.get_by_id(request, context)
+    @grpc_exception_handler_decorator
+    async def get_by_id(self, request):
+        model = await self.repository.get_by_id(request.id)
+        return self.mapper.orm_to_grpc(model)
 
-    async def update(self, request, context):
-        return await self.base_service.update(request, context)
+    @grpc_exception_handler_decorator
+    async def update(self, request):
+        model = self.mapper.grpc_to_orm(request)
 
-    async def delete(self, request, context):
-        return await self.base_service.delete(request, context)
+        is_exist = await self.repository.get_by_id(request.id)
+        if not is_exist:
+            return ValueError(f"Acronym with id {request.id} not found")
+
+        model = await self.repository.update(request.id, model)
+        return self.mapper.orm_to_grpc(model)
+
+    @grpc_exception_handler_decorator
+    async def delete(self, request):
+        await self.repository.delete(request.id)
+        return self.mapper.empty()

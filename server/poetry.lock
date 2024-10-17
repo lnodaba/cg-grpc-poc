@@ -853,6 +853,17 @@ files = [
 ]
 
 [[package]]
+name = "rodi"
+version = "2.0.6"
+description = "Implementation of dependency injection for Python 3"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "rodi-2.0.6-py3-none-any.whl", hash = "sha256:d299276be19842133def84dde365771d11a5195b76be0595eae9c1ecad818446"},
+    {file = "rodi-2.0.6.tar.gz", hash = "sha256:f533e315d84b63824efcc67526a156ad5fb0a158f1ccbc41e0db3944d0c08693"},
+]
+
+[[package]]
 name = "setuptools"
 version = "75.1.0"
 description = "Easily download, build, install, upgrade, and uninstall Python packages"
@@ -1049,4 +1060,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "1bbbd6e4002a752fadac009a1874f4cc52318857e2d6e013f3183b9975679b8f"
+content-hash = "c359ad3c72a2b77e3ebb192f02488011104bb51afc6c6f80f95712c42185f7b1"

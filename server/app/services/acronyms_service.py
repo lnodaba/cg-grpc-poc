@@ -1,96 +1,92 @@
-from sqlalchemy import select
+from mapper.Mapper import AcronymMapper
+from repository.repository import (
+    AcronymRepository,
+    TrainsetContentRepository,
+    TrainsetRepository
+)
 from models.trainset_contents import TrainsetContent
-from services.base_service import BaseService
-from services.trainset_service import TrainsetService
-from services.trainset_contetns_service import TrainsetContentService
-from services.proto import acronyms_pb2
+from services.base_service import grpc_exception_handler_decorator
+
 import services.proto.acronyms_pb2_grpc as acronyms_pb2_grpc
-from models.acronyms import Acronym
-from sql_alchemy.connection import get_session
-from custom_logger import logger
 
 
 class AcronymService(
-    acronyms_pb2_grpc.AcronymServiceServicer,
+    acronyms_pb2_grpc.AcronymServiceServicer
 ):
-    def __init__(self):
+    def __init__(
+        self,
+        repository: AcronymRepository,
+        trainset_repository: TrainsetRepository,
+        trainset_content_repository: TrainsetContentRepository,
+        mapper: AcronymMapper
+    ):
         super().__init__()
-        self.base_service = BaseService(
-            Acronym,
-            acronyms_pb2.Acronym,
-            acronyms_pb2.AcronymList
+        self.repository = repository
+        self.trainset_repository = trainset_repository
+        self.trainset_content_repository = trainset_content_repository
+        self.mapper = mapper
+
+    @grpc_exception_handler_decorator
+    async def create(self, request):
+        model = self.mapper.grpc_to_orm(request)
+        model = await self.repository.create(model)
+        return self.mapper.orm_to_grpc(model)
+
+    @grpc_exception_handler_decorator
+    async def get_all(self, request):
+        models = await self.repository.get_all()
+        return self.mapper.orm_to_grpc_list(models)
+
+    @grpc_exception_handler_decorator
+    async def get_by_id(self, request):
+        model = await self.repository.get_by_id(request.id)
+        return self.mapper.orm_to_grpc(model)
+
+    @grpc_exception_handler_decorator
+    async def update(self, request):
+        model = self.mapper.grpc_to_orm(request)
+
+        is_exist = await self.repository.get_by_id(request.id)
+        if not is_exist:
+            return ValueError(f"Acronym with id {request.id} not found")
+
+        model = await self.repository.update(request.id, model)
+        return self.mapper.orm_to_grpc(model)
+
+    @grpc_exception_handler_decorator
+    async def delete(self, request):
+        await self.repository.delete(request.id)
+        return self.mapper.empty()
+
+    @grpc_exception_handler_decorator
+    async def add_to_trainset(
+        self, request
+    ):
+        acronym, trainset_id = self.mapper.grpc_to_orm_acronym_with_transet_id(
+            request
         )
 
-    async def create(self, request, context):
-        return await self.base_service.create(request, context)
+        # await self.repository.start_transaction()
+        found_acronym = await self.repository.get_by_id(request.acronym.id)
+        if not found_acronym:
+            acronym = await self.repository.create(acronym)
+        else:
+            acronym = found_acronym
 
-    async def get_all(self, request, context):
-        return await self.base_service.get_all(request, context)
+        trainset = await self.trainset_repository.get_by_id(trainset_id)
 
-    async def get_by_id(self, request, context):
-        return await self.base_service.get_by_id(request, context)
+        if not trainset:
+            raise ValueError(f"Trainset with id {trainset_id} not found")
 
-    async def update(self, request, context):
-        return await self.base_service.update(request, context)
+        trainset_content = TrainsetContent(
+            acronym_id=acronym.id,
+            trainset_id=trainset.id,
+        )
+        await self.trainset_content_repository.create(trainset_content)
+        # await self.repository.end_transaction()
+        return self.mapper.orm_to_grpc(acronym)
 
-    async def delete(self, request, context):
-        return await self.base_service.delete(request, context)
-
-    async def add_to_trainset(
-        self, request, context
-    ):
-        async def add_to_trainset_query():
-            create_dto = self.base_service.grpc_to_orm(request.acronym)
-            async with get_session() as session:
-                session.add(create_dto)
-                await session.flush()
-                await session.refresh(create_dto)
-                logger.info(f"Object {create_dto} saved")
-  
-            trainset_service = TrainsetService()
-
-            await trainset_service.get_by_id(
-                acronyms_pb2.IdRequest(id=request.trainset_id), context
-            )
-
-            trainset_contents_service = TrainsetContentService()
-
-            new_trainset_content = acronyms_pb2.TrainsetContent(
-                trainset_id=request.trainset_id,
-                acronym_id=create_dto.id,
-            )
-
-            logger.info(f"Add acronym to trainset => trainset_content: {new_trainset_content} saved")
-
-            await trainset_contents_service.create(
-                new_trainset_content,
-                context
-            )
-
-            return self.base_service.orm_to_grpc(create_dto)
-
-        return await add_to_trainset_query()
-
-    async def get_by_trainset_id(
-        self, request, context
-    ):
-        async def get_acronym_by_trainset_id_query():
-            try:
-                async with get_session() as session:
-                    statement = (
-                        select(Acronym)
-                        .select_from(Acronym)
-                        .join(TrainsetContent, Acronym.id == TrainsetContent.acronym_id )  # Provide the join condition
-                        .filter(TrainsetContent.trainset_id == request.id)
-                    )
-                    result = await session.execute(statement)
-                    orm_obj_list = result.scalars().all()
-                    dto_list = [
-                        self.base_service.orm_to_grpc(orm_obj)
-                        for orm_obj in orm_obj_list
-                    ]
-                    return self.base_service.grpc_model_list(list=dto_list)
-            except Exception as e:
-                logger.error(f"Error: {e}")
-                return acronyms_pb2.Empty()
-        return await get_acronym_by_trainset_id_query()
+    @grpc_exception_handler_decorator
+    async def get_by_trainset_id(self, request):
+        models = await self.repository.find_by_trainset_id(request.id)
+        return self.mapper.orm_to_grpc_list(models)
