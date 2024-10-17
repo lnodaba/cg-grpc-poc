@@ -5,7 +5,6 @@ import warnings
 
 # import acronyms_pb2 as acronyms__pb2
 from . import acronyms_pb2 as acronyms__pb2
-
 GRPC_GENERATED_VERSION = '1.66.2'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
@@ -634,6 +633,21 @@ class TrainsetServiceStub(object):
                 request_serializer=acronyms__pb2.IdRequest.SerializeToString,
                 response_deserializer=acronyms__pb2.Trainset.FromString,
                 _registered_method=True)
+        self.save_checkpoint = channel.unary_unary(
+                '/acronyms.TrainsetService/save_checkpoint',
+                request_serializer=acronyms__pb2.IdRequest.SerializeToString,
+                response_deserializer=acronyms__pb2.Trainset.FromString,
+                _registered_method=True)
+        self.set_active = channel.unary_unary(
+                '/acronyms.TrainsetService/set_active',
+                request_serializer=acronyms__pb2.TrainsetIdWithModelId.SerializeToString,
+                response_deserializer=acronyms__pb2.Trainset.FromString,
+                _registered_method=True)
+        self.get_by_base_model_id = channel.unary_unary(
+                '/acronyms.TrainsetService/get_by_base_model_id',
+                request_serializer=acronyms__pb2.IdRequest.SerializeToString,
+                response_deserializer=acronyms__pb2.TrainsetList.FromString,
+                _registered_method=True)
 
 
 class TrainsetServiceServicer(object):
@@ -669,6 +683,24 @@ class TrainsetServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def save_checkpoint(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def set_active(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def get_by_base_model_id(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_TrainsetServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -696,6 +728,21 @@ def add_TrainsetServiceServicer_to_server(servicer, server):
                     servicer.get_by_id,
                     request_deserializer=acronyms__pb2.IdRequest.FromString,
                     response_serializer=acronyms__pb2.Trainset.SerializeToString,
+            ),
+            'save_checkpoint': grpc.unary_unary_rpc_method_handler(
+                    servicer.save_checkpoint,
+                    request_deserializer=acronyms__pb2.IdRequest.FromString,
+                    response_serializer=acronyms__pb2.Trainset.SerializeToString,
+            ),
+            'set_active': grpc.unary_unary_rpc_method_handler(
+                    servicer.set_active,
+                    request_deserializer=acronyms__pb2.TrainsetIdWithModelId.FromString,
+                    response_serializer=acronyms__pb2.Trainset.SerializeToString,
+            ),
+            'get_by_base_model_id': grpc.unary_unary_rpc_method_handler(
+                    servicer.get_by_base_model_id,
+                    request_deserializer=acronyms__pb2.IdRequest.FromString,
+                    response_serializer=acronyms__pb2.TrainsetList.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -833,6 +880,87 @@ class TrainsetService(object):
             '/acronyms.TrainsetService/get_by_id',
             acronyms__pb2.IdRequest.SerializeToString,
             acronyms__pb2.Trainset.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def save_checkpoint(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/acronyms.TrainsetService/save_checkpoint',
+            acronyms__pb2.IdRequest.SerializeToString,
+            acronyms__pb2.Trainset.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def set_active(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/acronyms.TrainsetService/set_active',
+            acronyms__pb2.TrainsetIdWithModelId.SerializeToString,
+            acronyms__pb2.Trainset.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def get_by_base_model_id(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/acronyms.TrainsetService/get_by_base_model_id',
+            acronyms__pb2.IdRequest.SerializeToString,
+            acronyms__pb2.TrainsetList.FromString,
             options,
             channel_credentials,
             insecure,

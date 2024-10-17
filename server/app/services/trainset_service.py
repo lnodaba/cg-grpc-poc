@@ -48,3 +48,23 @@ class TrainsetService(
     async def delete(self, request):
         await self.repository.delete(request.id)
         return self.mapper.empty()
+
+    @grpc_exception_handler_decorator
+    async def set_active(self, request):
+        model = await self.repository.set_active_by_id(
+            request.base_model_id,
+            request.trainset_id
+        )
+        return self.mapper.orm_to_grpc(model)
+
+    @grpc_exception_handler_decorator
+    async def save_checkpoint(self, request):
+        model = await self.repository.duplicate_by_id(request.id)
+        return self.mapper.orm_to_grpc(model)
+
+    @grpc_exception_handler_decorator
+    async def get_by_base_model_id(self, request):
+        models = await self.repository.get_by_base_model_id(
+            request.id
+        )
+        return self.mapper.orm_to_grpc_list(models)

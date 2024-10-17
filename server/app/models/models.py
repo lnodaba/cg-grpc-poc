@@ -1,3 +1,4 @@
+from datetime import date
 from sqlalchemy import Column, Float, Integer, String, Date
 from models.base_model import BaseModel
 
@@ -8,7 +9,7 @@ class Model(BaseModel):
 
     name = Column(String(100), nullable=True, name="NAME")
     version = Column(String(20), nullable=True, name="VERSION")
-    date = Column(Date, name="DATE")
+    create_dt = Column(Date, default=date.today, name="CREATE_DT")
     checkpoint = Column(Integer, nullable=True, name="CHECKPOINT")
     score = Column(Float, nullable=True, name="SCORE")
     department = Column(String(100), nullable=True, name="DEPARTMENT")

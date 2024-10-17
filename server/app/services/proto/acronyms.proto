@@ -32,6 +32,9 @@ service TrainsetService {
   rpc update(Trainset) returns (Trainset) {}
   rpc delete(Trainset) returns (Empty) {}
   rpc get_by_id(IdRequest) returns (Trainset) {}  // New get_by_id method
+  rpc save_checkpoint(IdRequest) returns (Trainset) {}
+  rpc set_active(TrainsetIdWithModelId) returns (Trainset) {}
+  rpc get_by_base_model_id(IdRequest) returns (TrainsetList) {}
 }
 
 service TrainsetContentService {
@@ -67,6 +70,11 @@ message AcronymWithTrainsetId {
     int32 trainset_id = 2;
 }
 
+message TrainsetIdWithModelId {
+    int32 trainset_id = 1;
+    int32 base_model_id = 2;
+}
+
 message AcronymTrainData {
     int32 id = 1;
     int32 acronym_id = 2;
@@ -95,13 +103,14 @@ message Trainset {
     google.protobuf.Timestamp create_dt = 6;
     string version = 7;
     string created_by = 8;
+    bool is_active = 9;
 }
 
 message Model {
     int32 id = 1;
     string name = 2;
     string version = 3;
-    google.protobuf.Timestamp date = 4;
+    google.protobuf.Timestamp create_dt = 4;
     int32 checkpoint = 5;
     float score = 6;
     string department = 7;

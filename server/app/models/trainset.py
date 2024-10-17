@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Date
+from sqlalchemy import Column, Integer, String, Date, Boolean
 from datetime import date
 
 from models.base_model import BaseModel
@@ -14,6 +14,7 @@ class Trainset(BaseModel):
     create_dt = Column(Date, default=date.today, name="CREATE_DT")
     version = Column(String(20), nullable=True, name="VERSION")
     created_by = Column(String(100), nullable=True, name="CREATED_BY")
+    is_active = Column(Boolean, nullable=True, name="IS_ACTIVE")
 
     def to_dict(self):
         return {
@@ -25,6 +26,7 @@ class Trainset(BaseModel):
             "create_dt": self.create_dt,
             "version": self.version,
             "created_by": self.created_by,
+            "is_active": self.is_active,
         }
 
     def __str__(self):
